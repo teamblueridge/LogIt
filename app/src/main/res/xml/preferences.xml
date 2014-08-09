@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:defaultValue="paste.teamblueridge.org"
+        android:inputType="textUri"
+        android:key="pref_domain"
+        android:summary="@string/stikked_pref_summary"
+        android:title="@string/stikked_pref" />
+    <PreferenceCategory android:title="@string/about">
+        <Preference android:title="@string/created_by"
+            android:summary="@string/tbr">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://teamblueridge.org" />
+        </Preference>
+        <Preference android:title="@string/stikked">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/claudehohl/Stikked" />
+        </Preference>
+        <Preference android:title="@string/version"
+            android:summary="Beta"/>
+    </PreferenceCategory>
+</PreferenceScreen>

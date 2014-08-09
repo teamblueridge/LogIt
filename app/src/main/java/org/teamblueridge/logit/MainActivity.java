@@ -1,16 +1,15 @@
 package org.teamblueridge.logit;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
-
 
 
 public class MainActivity extends Activity {
@@ -24,6 +23,7 @@ public class MainActivity extends Activity {
                     .add(R.id.container, new SubmitLogFragment())
                     .commit();
         }
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
     }
 
 
@@ -41,6 +41,7 @@ public class MainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -56,7 +57,7 @@ public class MainActivity extends Activity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_logsubmit, container, false);
             return rootView;
         }
